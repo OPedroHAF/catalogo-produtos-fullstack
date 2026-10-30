@@ -1,12 +1,12 @@
 # Diagrama textual da árvore de componentes
-
+```text
 App (Componente Principal / Gerenciador de Estados)
 ├── Header (Cabeçalho estático)
 ├── ProductSearch (Campo de busca controlado)
 ├── ProductList (Grade/Listagem de produtos)
 │   └── ProductCard (Cartão individual repetido via .map para cada produto)
 └── ProductDetails (Painel condicional de detalhes exibido sob demanda)
-
+```
 # Explicação
 
 "No meu código, o componente App é quem gerencia os estados principais, como a lista de produtos, o termo digitado na busca e o ID do item selecionado. Ao digitar no ProductSearch, ele atualiza o estado no App, que filtra os dados e manda pro ProductList desenhar os ProductCard na tela.
@@ -21,9 +21,10 @@ git clone <URL_DO_SEU_REPOSITORIO>
 cd catalogo-produtos
 ```
 
-## 2. Configurar API
+## 2. Instalar dependência
 
 # Instale as dependências
+Na pasta raíz do projeto, execute: 
 ```bash
 npm install
 ```
