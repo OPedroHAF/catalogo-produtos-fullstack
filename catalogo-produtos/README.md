@@ -1,16 +1,50 @@
-# React + Vite
+# Diagrama textual da árvore de componentes
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+App (Componente Principal / Gerenciador de Estados)
+├── Header (Cabeçalho estático)
+├── ProductSearch (Campo de busca controlado)
+├── ProductList (Grade/Listagem de produtos)
+│   └── ProductCard (Cartão individual repetido via .map para cada produto)
+└── ProductDetails (Painel condicional de detalhes exibido sob demanda)
 
-Currently, two official plugins are available:
+# Explicação
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+"No meu código, o componente App é quem gerencia os estados principais, como a lista de produtos, o termo digitado na busca e o ID do item selecionado. Ao digitar no ProductSearch, ele atualiza o estado no App, que filtra os dados e manda pro ProductList desenhar os ProductCard na tela.
 
-## React Compiler
+Ao clicar em 'Ver detalhes' nos cards, a aplicação pega o ID do respectivo produto e envia de volta pro App. Com o ID salvo, entra em ação o useEffect que consome a API REST usando o productsApi.js. Ele busca os dados, atualiza o estado e envia para o ProductDetails exibir as informações, tudo de forma fluida e sem precisar recarregar a página."
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+# Instruções de execução
 
-## Expanding the Oxlint configuration
+## 1. Clonar o repositório
+```bash
+git clone <URL_DO_SEU_REPOSITORIO>
+cd catalogo-produtos
+```
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and Oxlint's TypeScript related rules in your project.
+## 2. Configurar API
+
+# Instale as dependências
+```bash
+npm install
+```
+
+## 3. Configurar as Variáveis de Ambiente do Front-end
+Crie um arquivo .env na raiz do projeto contendo o endereço da API:
+VITE_API_URL=http://localhost:3000
+
+## 4. Executar o frontend
+Abrir um terminal na raiz do projeto e executar:
+```bash
+npm run dev
+```
+
+## 4. Executar o backend
+Abrir um terminal na pasta ./backend e executar:
+```bash
+npm run server
+```
+# Evidências de sucesso
+
+![Evidência 1](src/assets/first_evidence.png)
+![Evidência 2](src/assets/second_evidence.png)
+![Evidência 3](src/assets/third_evidence.png)
